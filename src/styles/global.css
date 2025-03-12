@@ -4,10 +4,13 @@
 
 @theme {
   --color-background: var(--background);
-  --color-background-2: var(--background-2);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
   --color-border: var(--border);
   --color-hover: var(--hover);
+  --color-accent: var(--accent);
+  --color-ascent-foreground: var(--accent-foreground);
 }
 
 
@@ -20,11 +23,14 @@
 @layer base{
   :root{
     --background: #fff;
-    --background-2: #292837;
+    --primary: #292837;
     --foreground: #000;
     --border: #A0A0A645;
     --hover: #24321c;
     --gr1: 42deg, #e9f950 -1.07%, #55f4c4 -1.06%, #bae906 104.1%;
+    --primary-foreground: #A0A0A5;
+    --accent: #67F29F;
+    --accent-foreground: var(--background);
   }
 
   .dark{
@@ -36,4 +42,24 @@
 .max-width{
   max-width: 1320px;
   margin: 0 auto;
+}
+
+
+.animate-graph{
+  animation: hero-graph-animation 14s linear infinite;
+}
+@keyframes hero-graph-animation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-spin2{
+  animation: spin 10s linear infinite;
 }

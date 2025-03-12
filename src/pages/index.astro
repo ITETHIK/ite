@@ -1,8 +1,64 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { MoveUpRight } from "lucide-react";
+import Star from "../assets/star.png";
+import Star2 from "../assets/star2.png";
+import Graph from "../assets/graph.png";
+import { Image } from "astro:assets";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout />
+<Layout>
+  <section class="max-width">
+    <div class="py-25">
+      <div class="relative">
+        <div class="absolute inset-0">
+          <Image
+            src={Graph}
+            alt="Graph"
+            class="size-30 inline absolute animate-graph pointer-events-none select-none"
+          />
+          <Image
+            src={Star2}
+            alt="Star"
+            class="size-20 inline absolute animate-spin2 right-[15%] pointer-events-none select-none"
+          />
+        </div>
+        <h1 class="w-fit font-bold text-7xl leading-28 relative ml-34">
+          <span class="bg-linear-(--gr1) bg-clip-text text-transparent">
+            ItEthik |
+          </span>
+          An IT <br />
+          <Image
+            src={Star}
+            alt="Star"
+            class="w-8 h-8 inline pointer-events-none select-none"
+          /> Ethnicity.
+        </h1>
+        <p
+          class="max-w-[820px] text-center mt-8 mx-auto text-primary-foreground"
+        >
+          Your Trusted Expert for Comprehensive Tech Solutions! Specializing in
+          computer repairs, laptop/Mac services, CCTV installations, intercom
+          systems, biometric security, server maintenance, and professional web
+          development. We deliver reliable, fast, and professional support to
+          keep your devices, systems, and online presence running smoothly.
+          Contact us today for expert assistance!
+        </p>
+      </div>
+      <a
+        class="mx-auto w-fit items-center justify-between gap-4 group flex mt-14 rounded-full bg-accent text-ascent-foreground px-6 py-4 font-semibold cursor-pointer"
+        href="/projects"
+      >
+        <span> Recent Projects </span>
+        <span
+          class="bg-background text-foreground rounded-full p-2 group-hover:rotate-45 transition-all"
+        >
+          <MoveUpRight strokeWidth={1} className="size-6" />
+        </span>
+      </a>
+    </div>
+  </section>
+</Layout>
