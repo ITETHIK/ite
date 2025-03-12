@@ -1,0 +1,11 @@
+---
+type Props = {
+  title: string;
+};
+
+const { title } = Astro.props;
+---
+
+<slot slot="head">
+  <title>{title}</title>
+</slot>

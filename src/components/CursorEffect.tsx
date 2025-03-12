@@ -6,7 +6,7 @@ export default function CursorEffect() {
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
-      setCursor({ x: e.clientX, y: e.clientY })
+      setCursor({ x: e.pageX, y: e.pageY })
     }
 
     window.addEventListener('mousemove', moveCursor)
@@ -39,7 +39,7 @@ export default function CursorEffect() {
   }, [cursor])
 
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden z-[9999]">
       <div
         className="absolute w-1.5 h-1.5 bg-white rounded-full"
         style={{
