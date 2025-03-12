@@ -12,4 +12,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   integrations: [icon({ iconDir: "src/icons" }), react()],
+  site: "https://itethik.github.com",
 });
