@@ -1,0 +1,21 @@
+---
+type Props = {
+  title: string;
+  href: string;
+};
+
+const { title, href } = Astro.props;
+---
+
+<li class="relative group/sidesubmenu not-last:border-b-2 border-border">
+  <a
+    href={href}
+    class="inline-flex hover:bg-linear-(--gr1) py-4 px-5 hover:text-background after:content-['+'] group-hover/sidesubmenu:after:content-['-'] items-center justify-between w-full"
+    >{title}</a
+  >
+  <ul
+    class="absolute left-full top-0 min-w-[200px] invisible group-hover/sidesubmenu:visible opacity-0 group-hover/sidesubmenu:opacity-100 bg-background-2 text-text shadow-lg transition-all duration-300"
+  >
+    <slot />
+  </ul>
+</li>

@@ -1,0 +1,18 @@
+---
+import { type HTMLAttributes } from "astro/types";
+import { cn } from "../lib/utils";
+
+type Props = HTMLAttributes<"a">;
+
+const { class: _class, ...props } = Astro.props;
+---
+
+<a
+  {...props}
+  class={cn(
+    "block relative px-4 py-3 before:absolute before:h-full before:w-[10%] before:content-[''] before:inline-flex items-center before:bg-hover before:-translate-y-1/2 before:top-1/2 before:left-0 before:z-[-1] isolate before:opacity-0 hover:before:opacity-100 before:transition-all hover:before:w-full before:rounded-[.625rem] before:duration-300 before:ease-in after:absolute group-hover:before:opacity-100 group-hover:before:w-full",
+    _class,
+  )}
+>
+  <slot />
+</a>

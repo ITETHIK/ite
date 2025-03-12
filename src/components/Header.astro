@@ -1,57 +1,109 @@
+---
+import { Icon } from "astro-icon/components";
+import Link from "../components/Link.astro";
+import SideSubmenu from "../components/submenus/SideSubmenu.astro";
+const LINKS = [
+  ["/", "Home"],
+  ["/about", "About"],
+  ["/services", "Service"],
+  ["/projects", "Projects"],
+  ["/blog", "Blog"],
+  ["/contact", "Contact"],
+  // ["/team", "Team"],
+  // ["/career", "Career"],
+  // ["/testimonial", "Testimonial"],
+  // ["/pricing", "Pricing"],
+  // ["/faq", "Faq"],
+  // ["/not-found", "404"],
+];
+---
+
 <!-- TODO: Mimic the header from the original template -->
-<header class="header">
-  <div class="container">
-    <div class="row">
-      <div class="header__wrapper">
-        <div class="header__logo">
-          <a href="index.html"
-            ><img src="assets/img/logo/logo.svg" alt="Insoand Logo" /></a
+<header class="border-b border-border">
+  <div class="max-width">
+    <div class="flex justify-between items-center">
+      <div class="pr-10 border-r border-border self-stretch flex items-center">
+        <a href="/">
+          <Icon name="logo" class="w-36 h-10" />
+        </a>
+      </div>
+      <div>
+        <nav>
+          <ul class="flex">
+            {
+              LINKS.map(([href, text]) => (
+                <li class="py-7 mr-4">
+                  <Link href={href}>{text}</Link>
+                </li>
+              ))
+            }
+            <li class="py-7 mr-4 group relative">
+              <Link
+                href="#"
+                class="after:content-['+'] after:pl-1 group-hover:after:content-['-']"
+                >More</Link
+              >
+              <ul
+                class="opacity-0 transition-all duration-300 absolute invisible bg-background-2 text-text shadow-lg group-hover:visible group-hover:opacity-100 hover:visible hover:opacity-100 top-20 hover:top-26 group-hover:top-26 min-w-[200px]"
+              >
+                <SideSubmenu title="Team" href="/team">
+                  <a
+                    href="/team"
+                    class="block hover:bg-linear-(--gr1) py-4 px-5 hover:text-background not-last:border-b-2 border-border"
+                    >Team</a
+                  >
+                  <a
+                    href="/team-details"
+                    class="block hover:bg-linear-(--gr1) py-4 px-5 hover:text-background not-last:border-b-2 border-border"
+                    >Team Details</a
+                  >
+                </SideSubmenu>
+                <SideSubmenu title="Career" href="/career">
+                  <a
+                    href="/career"
+                    class="block hover:bg-linear-(--gr1) py-4 px-5 hover:text-background not-last:border-b-2 border-border"
+                    >Career</a
+                  >
+                  <a
+                    href="/career-details"
+                    class="block hover:bg-linear-(--gr1) py-4 px-5 hover:text-background not-last:border-b-2 border-border"
+                    >Career Details</a
+                  >
+                </SideSubmenu>
+                <a
+                  href="/testimonial"
+                  class="block hover:bg-linear-(--gr1) py-4 px-5 hover:text-background not-last:border-b-2 border-border"
+                  >Testimonial</a
+                >
+                <a
+                  href="/pricing"
+                  class="block hover:bg-linear-(--gr1) py-4 px-5 hover:text-background not-last:border-b-2 border-border"
+                  >Pricing</a
+                >
+                <a
+                  href="/faq"
+                  class="block hover:bg-linear-(--gr1) py-4 px-5 hover:text-background not-last:border-b-2 border-border"
+                  >FAQ</a
+                >
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="flex items-center">
+        <div class="space-x-4">
+          <a
+            class="hover:bg-linear-(--gr1) rounded-xl px-5 py-3 hover:text-background transition-all duration-500 ease-in-out border-2 border-border"
+            href="/login">Login</a
+          >
+          <a
+            class="gr1 px-5 py-3 bg-linear-(--gr1) rounded-lg text-background"
+            href="/register">Sign Up</a
           >
         </div>
-        <div class="header__menu">
-          <nav id="offcanvase__menu">
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/services">Service</a></li>
-              <li><a href="/projects">Projects</a></li>
-              <li><a href="/blog">Blog</a></li>
-              <li><a href="/contact">Contact</a></li>
-              <li class="has-children">
-                <a href="#">More</a>
-                <ul class="submenu">
-                  <li class="has-children">
-                    <a href="/team">Team</a>
-                    <ul class="submenu">
-                      <li><a href="team.html">Team</a></li>
-                      <li><a href="team-details.html">Team Details</a></li>
-                    </ul>
-                  </li>
-                  <li class="has-children">
-                    <a href="career.html">Career</a>
-                    <ul class="submenu">
-                      <li><a href="career.html">Career</a></li>
-                      <li><a href="career-details.html">Career Details</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="testimonial.html">Testimonial</a></li>
-                  <li><a href="pricing.html">Pricing</a></li>
-                  <li><a href="faq.html">Faq</a></li>
-                  <li><a href="404.html">404</a></li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div class="header__right">
-          <div class="header__right--btn">
-            <a class="login" href="login.html">Login</a>
-            <a class="signup" href="register.html">Sign Up</a>
-          </div>
-          <button class="menu-icon d-md-block d-lg-none"
-            ><i class="fa-sharp fa-solid fa-bars"></i>
-          </button>
-        </div>
+        <!-- <button class="menu-icon d-md-block d-lg-none" -->
+        <!--   ><i class="fa-sharp fa-solid fa-bars"></i> -->
+        <!-- </button> -->
       </div>
     </div>
   </div>

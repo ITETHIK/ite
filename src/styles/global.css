@@ -4,7 +4,10 @@
 
 @theme {
   --color-background: var(--background);
+  --color-background-2: var(--background-2);
   --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-hover: var(--hover);
 }
 
 
@@ -18,11 +21,21 @@
 @layer base{
   :root{
     --background: #fff;
+    --background-2: #292837;
     --foreground: #000;
+    --border: #A0A0A645;
+    --hover: #24321c;
+    --gr1: 42deg, #e9f950 -1.07%, #55f4c4 -1.06%, #bae906 104.1%;
   }
 
   .dark{
     --background: #0C0B1C;
     --foreground: #fff;
   }
+}
+
+
+.max-width{
+  max-width: 1320px;
+  margin: 0 auto;
 }
