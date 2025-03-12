@@ -13,4 +13,5 @@ export default defineConfig({
   },
   integrations: [icon({ iconDir: "src/icons" }), react()],
   site: "https://itethik.github.com",
+  base: "/ite"
 });
