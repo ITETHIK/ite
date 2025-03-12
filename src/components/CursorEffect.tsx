@@ -1,0 +1,56 @@
+import { useEffect, useState } from "react"
+
+export default function CursorEffect() {
+  const [cursor, setCursor] = useState({ x: 0, y: 0 })
+  const [cursorLag, setCursorLag] = useState({ x: 0, y: 0 })
+
+  useEffect(() => {
+    const moveCursor = (e: MouseEvent) => {
+      setCursor({ x: e.clientX, y: e.clientY })
+    }
+
+    window.addEventListener('mousemove', moveCursor)
+
+    return () => window.removeEventListener('mousemove', moveCursor)
+  }, [])
+
+  useEffect(() => {
+    const updateLaggedCursor = () => {
+      setCursorLag((prevLag) => {
+        const dx = cursor.x - prevLag.x
+        const dy = cursor.y - prevLag.y
+        const lagSpeed = 0.1
+
+        return {
+          x: prevLag.x + dx * lagSpeed,
+          y: prevLag.y + dy * lagSpeed,
+        }
+      })
+      requestAnimationFrame(updateLaggedCursor)
+    }
+
+    requestAnimationFrame(updateLaggedCursor)
+  }, [cursor])
+
+  return (
+    <div className="absolute inset-0 pointer-events-none">
+      <div
+        className="absolute w-1.5 h-1.5 bg-white rounded-full"
+        style={{
+          top: `${cursor.y}px`,
+          left: `${cursor.x}px`,
+          transform: 'translate(-50%, -50%)',
+        }}
+      />
+      <div
+        className="absolute border-2 border-white rounded-full p-3"
+        style={{
+          top: `${cursorLag.y}px`,
+          left: `${cursorLag.x}px`,
+          transform: 'translate(-50%, -50%)',
+        }}
+      />
+    </div>
+  )
+}
+

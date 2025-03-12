@@ -17,7 +17,6 @@
   }
 }
 
-
 @layer base{
   :root{
     --background: #fff;
@@ -33,7 +32,6 @@
     --foreground: #fff;
   }
 }
-
 
 .max-width{
   max-width: 1320px;
