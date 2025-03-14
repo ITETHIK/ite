@@ -63,3 +63,18 @@
 .animate-spin2{
   animation: spin 10s linear infinite;
 }
+
+.animate-ping-pill{
+  animation: ping-pill 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping-pill {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  75%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

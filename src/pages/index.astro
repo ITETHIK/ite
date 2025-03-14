@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { MoveUpRight } from "lucide-react";
+import { CalendarIcon, MoveUpRight } from "lucide-react";
 import Star from "../assets/star.png";
 import Star2 from "../assets/star2.png";
 import Graph from "../assets/graph.png";
@@ -27,6 +27,20 @@ import Head from "../components/Head.astro";
             alt="Star"
             class="size-20 inline absolute animate-spin2 right-[15%] pointer-events-none select-none"
           />
+          <div
+            class="h-14 w-52 absolute right-[15%] top-[40%] bg-primary text-primary-foreground rounded-full"
+          >
+            <div
+              class="rounded-full absolute inset-0 animate-ping-pill bg-accent/80"
+            >
+            </div>
+            <div
+              class="inset-0 bg-primary/60 text-white absolute rounded-full flex items-center justify-center gap-2"
+            >
+              <CalendarIcon />
+              Book Now
+            </div>
+          </div>
         </div>
         <h1 class="w-fit font-bold text-7xl leading-28 relative ml-34">
           <span class="bg-linear-(--gr1) bg-clip-text text-transparent">
